@@ -1,21 +1,22 @@
+# new changes 24th aug 2026
 name: airbnb
+version: "1.0.0"
+config-version: 2
 
 profile: airbnb
-
-dbt-cloud:
-  project-id: "70506183152626"
 
 seed-paths: ["seeds"]
 model-paths: ["models"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
+test-paths: ["tests"]
+
 clean-targets:
   - "target"
   - "dbt_packages"
 
 seeds:
-  # Builds seeds into '<your_schema_name>_raw'
   airbnb:
     +schema: raw
 
@@ -27,5 +28,5 @@ models:
     src:
       +materialized: ephemeral
 
-data_tests:
+tests:
   +store_failures: true
